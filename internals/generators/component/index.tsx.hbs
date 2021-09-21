@@ -9,7 +9,7 @@ import React, { memo } from 'react';
 import * as React from 'react';
 {{/if}}
 {{#if wantStyledComponents}}
-import styled from 'styled-components/macro';
+import { Styled{{ properCase componentName }} } from './styles';
 {{/if}}
 {{#if wantTranslations}}
 import { useTranslation } from 'react-i18next';
@@ -30,7 +30,7 @@ export function {{ properCase componentName }}(props: Props) {
 
   return (
   {{#if wantStyledComponents}}
-  <Div>
+  <Styled{{ properCase componentName }} >
   {{else}}
   <div>
   {{/if}}
@@ -39,7 +39,7 @@ export function {{ properCase componentName }}(props: Props) {
     {/*  {t(...messages.someThing())}  */}
     {{/if}}
   {{#if wantStyledComponents}}
-  </Div>
+  </Styled{{ properCase componentName }} >
   {{else}}
   </div>
   {{/if}}
@@ -51,6 +51,4 @@ export function {{ properCase componentName }}(props: Props) {
 };
 {{/if}}
 
-{{#if wantStyledComponents}}
-const Div = styled.div``;
-{{/if}}
+

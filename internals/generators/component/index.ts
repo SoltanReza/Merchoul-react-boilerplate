@@ -95,6 +95,15 @@ export const componentGenerator: PlopGeneratorConfig = {
       });
     }
 
+    if (answers.wantStyledComponents) {
+      actions.push({
+        type: 'add',
+        path: `${componentPath}/styles.ts`,
+        templateFile: './component/styles.ts.hbs',
+        abortOnFail: true,
+      });
+    }
+
     if (answers.wantTests) {
       actions.push({
         type: 'add',
